@@ -42,6 +42,8 @@
 
 ## 最新版本V4.0（推荐）
 
+> 本地调试时，可注释掉限制调用控制台的代码。参照说明修改index.html、.env.development和.env.production文件。
+
 ## 🔰 项目概述
 
 ✅ 技术栈
@@ -167,6 +169,8 @@
 
 <img width="1470" height="841" alt="Image" src="https://github.com/user-attachments/assets/18ce8a21-ce36-4ffe-9b9f-9dbff9ee54ea" />
 <img width="1470" height="802" alt="Image" src="https://github.com/user-attachments/assets/7745822c-c876-4df2-b41f-275b210e77b8" />
+<img width="1470" height="752" alt="Image" src="https://github.com/user-attachments/assets/ea6d74f8-74e0-4500-947f-99ec171c7c93" />
+<img width="1470" height="755" alt="Image" src="https://github.com/user-attachments/assets/746890e5-d67b-491f-af1f-957b0f832040" />
 
 <details>
 
