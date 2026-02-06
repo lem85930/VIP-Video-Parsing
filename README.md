@@ -44,6 +44,10 @@
 
 > 本地调试时，可注释掉限制调用控制台的代码。参照说明修改package.json、email.config.js、index.html、.env.development、.env.production和docker-compose.yml文件。
 
+## 🛠️ 系统架构
+
+<img width="1345" height="750" alt="Image" src="https://github.com/user-attachments/assets/c52fe4e9-a04c-4712-b635-a7191712cbf4" />
+
 ## 🔰 项目概述
 
 ✅ 技术栈
