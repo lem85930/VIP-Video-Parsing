@@ -6,7 +6,7 @@ import {
   MessageOutlined,
   VideoCameraOutlined,
   SoundOutlined,
-  TranslationOutlined,
+  BookOutlined,
   PictureOutlined,
   UserOutlined,
   LogoutOutlined,
@@ -163,7 +163,7 @@ const Navbar: React.FC = () => {
     { key: '/video', label: t('nav.video'), icon: <VideoCameraOutlined /> },
     { key: '/music', label: t('nav.music'), icon: <SoundOutlined /> },
     { key: '/gold', label: t('nav.gold'), icon: <GoldOutlined /> },
-    { key: '/trans', label: t('nav.trans'), icon: <TranslationOutlined /> },
+    { key: '/papers', label: t('nav.paper'), icon: <BookOutlined /> },
     { key: '/text-to-photo', label: t('nav.textToPhoto'), icon: <PictureOutlined /> },
     { key: '/about', label: t('nav.about'), icon: <UserOutlined /> }
   ]

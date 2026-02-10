@@ -29,7 +29,15 @@ export default {
     help: {
       title: 'Help',
       description: 'Detailed tutorials and documentation to help you get started quickly'
-    }
+    },
+    papers: {
+      title: 'AI Papers',
+      description: 'Explore the latest AI research progress'
+    },
+    gold: {
+      title: 'Real-time Gold',
+      description: 'Real-time gold price and k-line chart, helping you make trading decisions'
+    },
   },
   footer: {
     slogan: '💗 The future is promising 💗',

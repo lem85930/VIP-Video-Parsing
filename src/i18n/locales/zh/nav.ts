@@ -4,6 +4,7 @@ const nav = {
   video: '视频解析',
   music: '音乐解析',
   cartoon: '漫画',
+  paper: '论文文献',
   trans: '论文降重',
   textToPhoto: '文字转图',
   gold: '实时黄金',

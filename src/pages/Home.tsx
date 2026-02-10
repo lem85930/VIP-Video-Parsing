@@ -7,7 +7,9 @@ import {
   MessageOutlined,
   PictureOutlined,
   QuestionCircleOutlined,
-  ReadOutlined
+  ReadOutlined,
+  BookOutlined,
+  GoldOutlined,
 } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -183,16 +185,22 @@ const Home: React.FC = () => {
       path: '/video'
     },
     {
-      title: t('home.features.trans.title'),
-      description: t('home.features.trans.description'),
-      icon: <TranslationOutlined />,
-      path: '/trans'
+      title: t('home.features.papers.title'),
+      description: t('home.features.papers.description'),
+      icon: <BookOutlined />,
+      path: '/papers'
     },
     {
       title: t('home.features.chatgpt.title'),
       description: t('home.features.chatgpt.description'),
       icon: <MessageOutlined />,
       path: '/gpt'
+    },
+    {
+      title: t('home.features.gold.title'),
+      description: t('home.features.gold.description'),
+      icon: <GoldOutlined />,
+      path: '/gold'
     },
     {
       title: t('home.features.cartoon.title'),
@@ -205,6 +213,12 @@ const Home: React.FC = () => {
       description: t('home.features.textToPhoto.description'),
       icon: <PictureOutlined />,
       path: '/text-to-photo'
+    },
+    {
+      title: t('home.features.trans.title'),
+      description: t('home.features.trans.description'),
+      icon: <TranslationOutlined />,
+      path: '/trans'
     },
     {
       title: t('home.features.help.title'),

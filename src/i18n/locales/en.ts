@@ -11,6 +11,7 @@ import cartoonChapter from './en/cartoonChapter'
 import common from './en/common'
 import versionUpdate from './en/versionUpdate'
 import trans from './en/trans'
+import paper from './en/paper'
 import textToPhoto from './en/textToPhoto'
 import notFound from './en/notFound'
 import gold from './en/gold'
@@ -31,6 +32,7 @@ export default {
     common,
     versionUpdate,
     trans,
+    paper,
     textToPhoto,
     notFound,
     gold,

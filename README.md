@@ -12,7 +12,7 @@
 
 ## 📄 免责声明
 
-### 本项目提供音乐、影视解析、实时黄金及K线图、动漫漫画和ChatGPT相关服务，仅供学习使用，请勿用于任何商业用途。如你有更好的想法、建议、或不解的问题，欢迎提PR或Issues！如有侵权，请联系我！
+### 本项目提供音乐、影视解析、实时黄金及K线图、动漫漫画、Hugging Face论文和ChatGPT相关服务，仅供学习使用，请勿用于任何商业用途。如你有更好的想法、建议、或不解的问题，欢迎提PR或Issues！如有侵权，请联系我！
 
 > License：ChattyPlay-Agent is licensed under the Apache-2.0 License. See the [LICENSE](https://github.com/P1kaj1uu/ChattyPlay-Agent/blob/master/LICENSE) file for more information.
 
@@ -48,7 +48,7 @@
 - v2.8版本优化加载效果，增加网站访问次数统计和版本更新提醒用户功能（2023.5.26-2023.5.27）
 - v2.9版本整体优化代码，修复bug，并抽离封装部分函数和组件，降低复杂度，实现高内聚低耦合（2023.6.10-2023.6.20）
 - v3.0全新版本上线，优化markdown代码块格式，并接入文生图、亚马逊爬虫服务，发布浏览器插件（2023.7.24-2023.8.13）
-- v4.0重构项目完成，修改相关的bug，页面结构样式重新设计，增加实时黄金及k线图、动漫漫画功能，优化用户体验，并完成移动端和PC端的适配，添加版本检测弹窗更新功能，接入SDK、MCP、Agent、谷歌和Github授权登录等服务，同时系统整体架构将Vue2替换为React + TypeScript + Hono + Vite + Tailwind CSS + i18n国际化 + live2d看板娘 + nginx + Docker容器化管理（2025.12.16-2026.2.9）
+- v4.0重构项目完成，修改相关的bug，页面结构样式重新设计，增加实时黄金及k线图、动漫漫画和Hugging Face论文功能，优化用户体验，并完成移动端和PC端的适配，添加版本检测弹窗更新功能，接入SDK、MCP、Agent、谷歌和Github授权登录等服务，同时系统整体架构将Vue2替换为React + TypeScript + Hono + Vite + Tailwind CSS + i18n国际化 + live2d看板娘 + nginx + Docker容器化管理（2025.12.16-2026.2.10）
 
 ## 最新版本V4.0（推荐）
 
@@ -75,6 +75,7 @@
 - 限制终端控制台调用
 - 组件库使用Antd
 - 接入fundebug SDK和OPen AI SDK
+- Hugging Face今日论文和热搜论文
 - 接入MCP、Agent相关服务
 - 接入谷歌和Github授权登录
 
@@ -107,6 +108,11 @@
 - 实时获取黄内金价和国外金价数据
 - TradingView实时k线图数据波动
 - 支持切换日期范围选择、复制图片、下载图片
+
+✅ 论文文献
+
+- Hugging Face今日论文和热搜论文
+- 筛选论文，项目主页，代码地址，arXiv论文等
 
 ✅ ChatGPT
 
@@ -148,10 +154,10 @@
 
 - ### 主页
 
-<img width="1470" height="791" alt="Image" src="https://github.com/user-attachments/assets/7fa74a56-fe03-48fd-ae4f-1424a1680aab" />
-<img width="1470" height="793" alt="Image" src="https://github.com/user-attachments/assets/3f32f751-c0dc-4ec2-bb84-0413cce4d9f9" />
-<img width="631" height="710" alt="Image" src="https://github.com/user-attachments/assets/cb304370-f93f-49c6-8e21-a2736055daef" />
-<img width="677" height="719" alt="Image" src="https://github.com/user-attachments/assets/9c824d7e-669d-469c-99ca-3ba186cdc95c" />
+<img width="1470" height="794" alt="Image" src="https://github.com/user-attachments/assets/e745dfcf-e04d-49bf-b2dc-bb19cf66ded0" />
+<img width="1470" height="795" alt="Image" src="https://github.com/user-attachments/assets/82a34ebe-00eb-4c37-8b90-82f53f604a44" />
+<img width="667" height="708" alt="Image" src="https://github.com/user-attachments/assets/4711dbd6-4a24-4d28-a47e-db95f6934d3e" />
+<img width="663" height="694" alt="Image" src="https://github.com/user-attachments/assets/90a5388e-2008-47d6-afcd-939277aa4086" />
 
 - ### 观看页面
 
@@ -176,6 +182,13 @@
 <img width="1470" height="794" alt="Image" src="https://github.com/user-attachments/assets/d3a8e9c0-adc1-40f1-9de9-f79c14f483a4" />
 <img width="1470" height="795" alt="Image" src="https://github.com/user-attachments/assets/b17a1d6d-d8e8-48f6-96f6-a49968d4be71" />
 <img width="660" height="700" alt="Image" src="https://github.com/user-attachments/assets/41da09a3-8c84-434c-a001-fc81b5624217" />
+
+- ### 论文文献
+
+<img width="1470" height="792" alt="Image" src="https://github.com/user-attachments/assets/ef306516-24ae-4dc9-8d3a-02cd86d7bbef" />
+<img width="1470" height="795" alt="Image" src="https://github.com/user-attachments/assets/8d08a59c-b673-430e-99de-0230ed0db149" />
+<img width="675" height="779" alt="Image" src="https://github.com/user-attachments/assets/ec888e37-8bb5-42ba-bbb6-10ef2123fd39" />
+<img width="699" height="709" alt="Image" src="https://github.com/user-attachments/assets/ff1eeb84-337e-4b9d-87b7-a37e2ffa4125" />
 
 - ### ChatGPT页面
 
