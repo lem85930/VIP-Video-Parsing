@@ -18,6 +18,7 @@ import Trans from './pages/Trans'
 import TextToPhoto from './pages/TextToPhoto'
 import Help from './pages/Help'
 import About from './pages/About'
+import PaperListPage from './pages/PaperListPage'
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -181,6 +182,7 @@ const AppContent: React.FC = () => {
           <Route path="/text-to-photo" element={<TextToPhoto />} />
           <Route path="/help" element={<Help />} />
           <Route path="/about" element={<About />} />
+          <Route path="/papers" element={<PaperListPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

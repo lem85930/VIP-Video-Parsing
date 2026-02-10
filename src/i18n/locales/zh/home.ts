@@ -29,7 +29,15 @@ const home = {
     help: {
       title: '使用帮助',
       description: '详细的使用教程和帮助文档，让您快速上手'
-    }
+    },
+    papers: {
+      title: '论文文献',
+      description: '探索最新人工智能研究进展'
+    },
+    gold: {
+      title: '实时黄金',
+      description: '实时获取黄金价格和k线图，帮助您进行交易决策'
+    },
   },
   footer: {
     slogan: '💗 来日方长，未来可期 💗',

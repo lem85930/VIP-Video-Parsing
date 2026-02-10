@@ -11,6 +11,7 @@ import cartoonChapter from './zh/cartoonChapter'
 import common from './zh/common'
 import versionUpdate from './zh/versionUpdate'
 import trans from './zh/trans'
+import paper from './zh/paper'
 import textToPhoto from './zh/textToPhoto'
 import notFound from './zh/notFound'
 import gold from './zh/gold'
@@ -31,6 +32,7 @@ export default {
     common,
     versionUpdate,
     trans,
+    paper,
     textToPhoto,
     notFound,
     gold,

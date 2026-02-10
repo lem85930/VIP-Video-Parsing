@@ -4,6 +4,7 @@ const nav = {
   video: 'Video Parse',
   music: 'Music Parse',
   cartoon: 'Cartoon',
+  paper: 'Paper',
   trans: 'Paper Rewriter',
   textToPhoto: 'Text to Photo',
   gold: 'Live Gold',
