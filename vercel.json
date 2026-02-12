@@ -1,0 +1,30 @@
+{
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,PUT,DELETE,OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/translate/:path*",
+      "destination": "https://fanyi-api.baidu.com/api/trans/vip/translate/:path*"
+    },
+    {
+      "source": "/api/kuaikan/:path*",
+      "destination": "https://www.kuaikanmanhua.com/:path*"
+    },
+    {
+      "source": "/api/kuaikan-m/:path*",
+      "destination": "https://m.kuaikanmanhua.com/:path*"
+    },
+    {
+      "source": "/api/netease/:path*",
+      "destination": "https://netease-cloud-music-api.fe-mm.com/:path*"
+    }
+  ]
+}
