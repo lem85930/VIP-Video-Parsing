@@ -32,17 +32,17 @@
 
 export const emailConfig = {
   // EmailJS 公钥（必填）
-  PUBLIC_KEY: 'YOUR_PUBLIC_KEY_HERE',
+  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY_HERE',
 
   // EmailJS 服务 ID（必填）
-  SERVICE_ID: 'YOUR_SERVICE_ID_HERE',
+  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID_HERE',
 
   // EmailJS 模板 ID（必填）
-  TEMPLATE_ID: 'YOUR_TEMPLATE_ID_HERE',
+  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID_HERE',
 
   // 发件人信息（可选）
-  fromName: 'ChattyPlay',
-  fromEmail: '891523233@qq.com',
+  fromName: import.meta.env.VITE_EMAILJS_FROM_NAME || 'ChattyPlay',
+  fromEmail: import.meta.env.VITE_EMAILJS_FROM_EMAIL || '891523233@qq.com',
 }
 
 export default emailConfig

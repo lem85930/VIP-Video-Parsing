@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Input, Button, Radio, RadioChangeEvent, Avatar, Tag, Skeleton, Tooltip, Badge, Dropdown, Image } from 'antd'
+import { Card, Input, Button, Radio, RadioChangeEvent, Avatar, Tag, Skeleton, Tooltip, Badge, Dropdown, Image, Modal } from 'antd'
 import { 
   SearchOutlined, 
   GithubOutlined, 
@@ -12,7 +12,8 @@ import {
   DownOutlined,
   DownloadOutlined,
   ProjectOutlined,
-  PaperClipOutlined
+  PaperClipOutlined,
+  FilePdfOutlined
 } from '@ant-design/icons'
 import { 
   getAuthorNames, 
@@ -25,7 +26,6 @@ import {
 } from '@/utils/paper'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
-
 interface AuthorData {
   _id: string;
   avatarUrl?: string;
@@ -201,6 +201,11 @@ const PaperListPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [repoTypeFilter, setRepoTypeFilter] = useState<string>('all');
+  
+  // 添加PDF弹窗相关的状态
+  const [pdfModalVisible, setPdfModalVisible] = useState<boolean>(false);
+  const [currentPdfUrl, setCurrentPdfUrl] = useState<string>('');
+  const [currentPaperTitle, setCurrentPaperTitle] = useState<string>('');
 
   const API_PAPERS_URL = import.meta.env.VITE_PAPERS_API_URL || 'https://hf-mirror.com/api'
 
@@ -389,9 +394,35 @@ const PaperListPage: React.FC = () => {
     }
   }
 
+  // 处理PDF预览
+  const handlePdfPreview = (pdfUrl: string, paperTitle: string) => {
+    setCurrentPdfUrl(pdfUrl)
+    setCurrentPaperTitle(paperTitle)
+    setPdfModalVisible(true)
+  };
+
+  // 关闭PDF弹窗
+  const handlePdfModalClose = () => {
+    setPdfModalVisible(false)
+    setCurrentPdfUrl('')
+    setCurrentPaperTitle('')
+  }
+
   // 获取所有可用链接
   const getAllLinks = (paper: PaperDetail) => {
     const links = []
+
+    // 论文链接（如果是arXiv ID）
+    if (paper.id && paper.id.match(/^\d{4}\.\d{5}$/)) {
+      links.push({
+        key: 'arxiv',
+        icon: <PaperClipOutlined />,
+        href: `https://arxiv.org/pdf/${paper.id}`,
+        tooltip: '查看论文',
+        type: 'default' as const,
+        flag: true
+      })
+    }
     
     // HuggingFace详情链接
     if (paper.id) {
@@ -428,10 +459,10 @@ const PaperListPage: React.FC = () => {
       })
     }
     
-    // 论文链接（如果是arXiv ID）
+    // 论文链接（如果是arXiv ID）- 这里是摘要链接
     if (paper.id && paper.id.match(/^\d{4}\.\d{5}$/)) {
       links.push({
-        key: 'arxiv',
+        key: 'arxiv-abs',
         icon: <PaperClipOutlined />,
         href: `https://arxiv.org/abs/${paper.id}`,
         tooltip: t('paper.arXiv'),
@@ -665,7 +696,7 @@ const PaperListPage: React.FC = () => {
 
                         {/* 摘要/描述 */}
                         <p className="text-gray-600 text-sm mb-2 line-clamp-2 leading-relaxed">
-                          {paper.summary ||paper.ai_summary}
+                          {paper.summary || paper.ai_summary}
                         </p>
 
                         {/* 元信息行 */}
@@ -760,20 +791,40 @@ const PaperListPage: React.FC = () => {
 
                           {/* 右侧：所有链接按钮 */}
                           <div className="flex items-center space-x-2">
-                            {allLinks.map((link) => (
-                              <Tooltip key={link.key} title={link.tooltip}>
-                                <Button
-                                  type={link.type}
-                                  size="small"
-                                  icon={link.icon}
-                                  href={link.href}
-                                  target="_blank"
-                                  className="p-1 text-xs"
-                                >
-                                  {link.type === 'primary' && t('paper.detail')}
-                                </Button>
-                              </Tooltip>
-                            ))}
+                            {allLinks.map((link) => {
+                              // 如果是flag为true的链接，显示PDF预览按钮
+                              if (link.flag) {
+                                return (
+                                  <Tooltip key={link.key} title="PDF">
+                                    <Button
+                                      type="default"
+                                      size="small"
+                                      icon={<FilePdfOutlined />}
+                                      onClick={() => handlePdfPreview(link.href, paper.title)}
+                                      className="p-1 text-xs bg-red-50 text-red-600 border-red-200 hover:bg-red-100"
+                                    >
+                                      PDF
+                                    </Button>
+                                  </Tooltip>
+                                );
+                              }
+                              
+                              // 普通链接按钮
+                              return (
+                                <Tooltip key={link.key} title={link.tooltip}>
+                                  <Button
+                                    type={link.type}
+                                    size="small"
+                                    icon={link.icon}
+                                    href={link.href}
+                                    target="_blank"
+                                    className="p-1 text-xs"
+                                  >
+                                    {link.type === 'primary' && t('paper.detail')}
+                                  </Button>
+                                </Tooltip>
+                              );
+                            })}
                           </div>
                         </div>
                       </div>
@@ -808,6 +859,33 @@ const PaperListPage: React.FC = () => {
             </div>
           )}
         </main>
+
+        {/* PDF预览弹窗 */}
+        <Modal
+          title={
+            <div className="flex items-center">
+              <FilePdfOutlined className="text-red-500 mr-2" />
+              <span className="font-medium">{currentPaperTitle}</span>
+            </div>
+          }
+          open={pdfModalVisible}
+          onCancel={handlePdfModalClose}
+          footer={null}
+          width="80%"
+          style={{ top: 20 }}
+          styles={{ body: { height: '80vh', padding: 0 } }}
+        >
+          {currentPdfUrl && (
+            <iframe
+              src={`${currentPdfUrl}#view=FitH`}
+              title={`PDF - ${currentPaperTitle}`}
+              width="100%"
+              height="100%"
+              style={{ border: 'none' }}
+              className="w-full h-full"
+            />
+          )}
+        </Modal>
       </div>
     </div>
   )

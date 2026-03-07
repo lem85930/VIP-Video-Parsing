@@ -36,13 +36,14 @@ import Workflow from './pages/goofish/Workflow'
 import Logs from './pages/goofish/Logs'
 import Goods from './pages/goofish/Goods'
 import { scrollToTop } from './utils/backTop'
+import { isMobileDevice } from './utils/isMobile'
 import WorkerAgent from './pages/WorkerAgent'
 
 // 公开路由
 const publicRoutes = ['/']
 
-// 限制闲鱼路由
-const goofishRoutes = ['/goofish', '/goofish/accounts', '/goofish/conversations', '/goofish/orders', '/goofish/goods', '/goofish/autoreply', '/goofish/autosell', '/goofish/workflow', '/goofish/logs']
+// 移动端限制监工路由
+const workerAgentRoutes = ['/worker']
 
 // 配置 NProgress
 NProgress.configure({
@@ -64,13 +65,13 @@ const AppContent: React.FC = () => {
 
   // 路由守卫：检查是否登录
   useEffect(() => {
-    // 如果生产环境下访问闲鱼相关路且已登录，重定向到首页
-    if (process.env.NODE_ENV === 'production' && goofishRoutes.includes(location.pathname) && isAuthenticated()) {
+    // 如果是移动端、生产环境下访问监工路由且已登录，重定向到首页
+    if (process.env.NODE_ENV === 'production' && workerAgentRoutes.includes(location.pathname) && isMobileDevice() && isAuthenticated()) {
       navigate('/home', { replace: true })
       return
     }
-     // 如果生产环境下访问闲鱼相关路且未登录，重定向到登录页
-    if (process.env.NODE_ENV === 'production' && goofishRoutes.includes(location.pathname) && !isAuthenticated()) {
+    // 如果是移动端、生产环境下访问监工路由且未登录，重定向到登录页
+    if (process.env.NODE_ENV === 'production' && workerAgentRoutes.includes(location.pathname) && isMobileDevice() && !isAuthenticated()) {
       navigate('/', { replace: true })
       return
     }
