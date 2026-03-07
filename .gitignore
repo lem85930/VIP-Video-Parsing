@@ -2,6 +2,11 @@
 node_modules
 /dist
 
+# 闲鱼日志文件
+/logs
+# 闲鱼数据库文件
+/data
+
 
 # local env files - ignore all .env files except .env.example
 .env
