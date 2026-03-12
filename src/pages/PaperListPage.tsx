@@ -457,7 +457,7 @@ const PaperListPage: React.FC = () => {
     // 论文链接（如果是arXiv ID）
     if (paper.id && paper.id.match(/^\d{4}\.\d{5}$/)) {
       links.push({
-        key: 'arxiv',
+        key: `arxiv-${paper.id}`,
         icon: <PaperClipOutlined />,
         href: `https://arxiv.org/pdf/${paper.id}`,
         tooltip: '查看论文',
@@ -504,7 +504,7 @@ const PaperListPage: React.FC = () => {
     // 论文链接（如果是arXiv ID）- 这里是摘要链接
     if (paper.id && paper.id.match(/^\d{4}\.\d{5}$/)) {
       links.push({
-        key: 'arxiv-abs',
+        key: `arxiv-abs-${paper.id}`,
         icon: <PaperClipOutlined />,
         href: `https://arxiv.org/abs/${paper.id}`,
         tooltip: t('paper.arXiv'),
@@ -830,15 +830,14 @@ const PaperListPage: React.FC = () => {
                           </div>
 
                           {/* 右侧：所有链接按钮 */}
-                          <div className="flex items-center space-x-2">
+                          <div className="flex items-center justify-end space-x-2 w-full">
                             {allLinks.map((link) => {
                               // 如果是flag为true的链接，显示PDF预览按钮
                               if (link.flag) {
                                 return (
-                                  <>
+                                  <React.Fragment key={link.key}>
                                     <Button
                                       type="default"
-                                      key={link.key}
                                       size="small"
                                       icon={<FilePdfOutlined />}
                                       onClick={() => handlePdfPreview(link.href, paper.title)}
@@ -848,18 +847,17 @@ const PaperListPage: React.FC = () => {
                                     </Button>
                                     <Button
                                       type="default"
-                                      key={link.key}
                                       size="small"
                                       icon={<OpenAIOutlined />}
                                       onClick={() => toggleChat(link.href, paper.title)}
                                       className="p-1 text-xs bg-blue-50 text-black border-black-200 hover:bg-gray-200"
                                     >
-                                      ChatGPT
+                                      GPT
                                     </Button>
-                                  </>
+                                  </React.Fragment>
                                 );
                               }
-                              
+
                               // 普通链接按钮
                               return (
                                 <Tooltip key={link.key} title={link.tooltip}>
