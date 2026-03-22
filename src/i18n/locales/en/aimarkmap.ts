@@ -111,7 +111,7 @@ const aimarkmap = {
 - AI-driven content creation
 ### 🔧 Custom Configuration
 - Easy model selection
-- API key configuration via modal
+- Prompt template configuration via modal
 - Personalized settings
 
 ## 🚀 How to Use
