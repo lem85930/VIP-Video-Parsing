@@ -153,8 +153,20 @@ const CartoonDetail: React.FC = () => {
   }
 
   // 处理章节点击
-  const handleChapterClick = (comicId: number) => {
-    navigate(`/cartoon/chapter/${comicId}`)
+  const handleChapterClick = async (comicId: number) => {
+    try {
+      const response = await fetch((`/api/kuaikan/v2/pweb/comic/${comicId}`))
+      const data = await response.json()
+    
+      if (data.data && data.data.comic_info && data.data.comic_info.comic_images) {
+        navigate(`/cartoon/chapter/${comicId}`)
+      } else {
+        message.warning(t('cartoonChapter.noContent'))
+      }
+    } catch (error) {
+      console.error('获取章节内容失败:', error)
+      message.error(t('cartoonChapter.fetchChapterFailed'))
+    }
   }
 
   // 格式化数字显示

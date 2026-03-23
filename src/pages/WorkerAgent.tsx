@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { Spin } from 'antd'
 
 const WorkerAgent: React.FC = () => {
-  const [loading, setLoading] = useState(true)
+  // 生产环境下才显示加载效果
+  const [loading, setLoading] = useState(process.env.NODE_ENV === 'production')
 
   return (
     <div style={{ position: 'relative' }}>
@@ -17,13 +18,16 @@ const WorkerAgent: React.FC = () => {
           <Spin size="large" />
         </div>
       )}
-      <iframe
-        src="https://ai-agent-pixel-office.vercel.app"
-        width="100%"
-        height="650px"
-        style={{ border: 'none', opacity: loading ? 0 : 1 }}
-        onLoad={() => setLoading(false)}
-      />
+      {/* 生产环境下才显示iframe */}
+      {process.env.NODE_ENV === 'production' && (
+        <iframe
+          src={import.meta.env.VITE_AGENT_API_URL}
+          width="100%"
+          height="650px"
+          style={{ border: 'none', opacity: loading ? 0 : 1 }}
+          onLoad={() => setLoading(false)}
+        />
+      )}
     </div>
   );
 }
