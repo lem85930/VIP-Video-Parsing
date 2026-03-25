@@ -53,8 +53,9 @@
 - v4.2思维导图和Markdown格式预览及编辑，导出图片。论文PDF预览及AI问答（2026.3.9-2026.3.11）
 - v4.3解析下载无水印1080P视频（2026.3.13-2026.3.14）
 - v4.4封装浏览器指纹SDK、GIF图片埋点SDK，接入Google Analytics分析工具（2026.3.15-2026.3.16）
+- v4.5优化注册登录功能，jwt token无感刷新token，redis存储用户信息，cloudflare托管vercel（2026.3.22-2026.3.26）
 
-## 最新版本V4.4（推荐）
+## 最新版本V4.5（推荐）
 
 > 本地调试时，可注释掉限制调用控制台的代码。参照说明修改package.json、email.config.js、index.html、.env.development、.env.production和docker-compose.yml文件。
 
@@ -67,9 +68,7 @@
 
 ✅ 技术栈
 
-前端：
-
-- React + TypeScript + Vite + Tailwind CSS + i18n国际化 + live2d看板娘
+- Python + React + TypeScript + Vite + Tailwind CSS + i18n国际化 + live2d看板娘
 - 适配移动端和PC端
 - Three.js 3D 模型加载动画效果
 - MD5加密，验证码，网站访问次数统计
@@ -88,6 +87,9 @@
 - 解析下载无水印1080P视频
 - 封装浏览器指纹SDK、GIF图片埋点SDK
 - 接入Google Analytics分析工具
+- jwt token无感刷新token
+- redis存储用户信息
+- cloudflare托管vercel
 
 ✅ 音乐播放
 
@@ -154,7 +156,8 @@
 
 - ### 登录页面
 
- <img width="1032" height="758" alt="Image" src="https://github.com/user-attachments/assets/03351211-ce23-4e74-9859-a06c57f63fa2" />
+<img width="1292" height="767" alt="Image" src="https://github.com/user-attachments/assets/0bcd7641-770c-4d2e-9c13-8af243acf816" />
+<img width="1312" height="791" alt="Image" src="https://github.com/user-attachments/assets/2714de5f-471c-40f5-af41-dbe4b21a3813" />
 <img width="1413" height="708" alt="Image" src="https://github.com/user-attachments/assets/19d1df96-4fad-4c22-b720-10d1deed48b3" />
 <img width="1276" height="659" alt="Image" src="https://github.com/user-attachments/assets/9570cfd9-8189-4e5e-b3d0-9f3ab81b888e" />
 
@@ -253,6 +256,8 @@
 <img width="1470" height="793" alt="Image" src="https://github.com/user-attachments/assets/468c753d-5f3f-43ff-b3d0-e86a66064319" />
 <img width="1373" height="788" alt="Image" src="https://github.com/user-attachments/assets/b159956b-599a-439a-a05c-33cd25def60a" />
 <img width="1470" height="755" alt="Image" src="https://github.com/user-attachments/assets/746890e5-d67b-491f-af1f-957b0f832040" />
+<img width="1276" height="713" alt="Image" src="https://github.com/user-attachments/assets/179ffd95-19a5-41aa-a389-89d7385410a9" />
+<img width="1276" height="720" alt="Image" src="https://github.com/user-attachments/assets/7ca5f088-78d2-43b0-a5d8-9b39868f4da0" />
 
 <details>
 
